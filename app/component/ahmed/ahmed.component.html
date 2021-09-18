@@ -1,0 +1,39 @@
+<p>ahmed works!</p>
+<button  [disabled]="!enableAdd" class="btn btn-blue text-black
+ btn-box mb-3 "[ngClass]="currentClasses">add new user</button>
+<h2>ahmed</h2>
+<!-- to make if condition to check there is user or not -->
+<ul  class="list-unstyled"  *ngIf=" loaded && ahmed!.length> 0"> <!-- why i must use ! to make it compile -->
+    <!--how make for loop  -->
+    <li class="card card-body mb-2" *ngFor="let ziko of ahmed "[class.bg-green]="ziko.isActive" >
+      <div class="row">
+        <div class="col-sm-4" >
+          <!-- why must make img fluid to make image pass -->
+          <img *ngIf="ziko.image"   class="img-fluid" [src]= "ziko.image" alt="">
+
+        </div> 
+      <div class="col-sm-8" text-red>
+        <h3 text-grey>{{ziko.firstName}} {{ziko.lastName}} </h3>
+        <ul class="list-group" *ngIf="showExtended && ziko.age && ziko.address">
+<!-- <ul *ngIf="showExtended && ziko.age && ziko.address" >-->
+    <li class="list-group-item" text-geen> Age:{{ziko.age}}</li>
+<li class="list-group-item"  > Address: {{ ziko.address.street }}</li> 
+<li class="list-group-item"> {{ ziko.address.city }}</li> 
+ <li class="list-group-item"> {{ ziko.address.state }}</li>   
+</ul>
+
+<h5 class="card-title">Special title treatment</h5>
+<!--<ng-template #noUsers><h4>No Userss Found</h4></ng-template>--> 
+
+<p>
+  <ngb-alert [dismissible]="false">
+    <strong>Warning!</strong> Better check yourself, you're not looking too good.
+  </ngb-alert>
+
+</p>
+</div>
+      </div>
+</li>
+</ul>
+<h4 *ngIf="ahmed?.length == 0"> no user found </h4>
+<h4 *ngIf="!loaded"> loading User ... </h4>
