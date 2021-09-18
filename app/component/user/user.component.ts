@@ -1,7 +1,7 @@
 /* this is way to name file floder name +floder name (if 2 floder)+file name */
 /*to import from angular pacakge */ 
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import{User} from '../../models/User';
 /*to make decorator to add inforamtion */
@@ -15,14 +15,20 @@ import{User} from '../../models/User';
  styleUrls:['./user.component.css']
 
 })
-export class userComponent{
+export class userComponent implements OnInit{
   user?: User;
+  // if condition 
+  showExtended? : boolean = true;
+ 
     
 
 //method
 constructor(){
  // this.sayHello();
-  this.user={
+ 
+  }
+  ngOnInit(){
+     this.user={
     firstName:'ahmed',
     lastName:'zakria',
     age:27,
@@ -33,6 +39,7 @@ constructor(){
     }
 
     }
+
   }
 }
 
